@@ -1,31 +1,18 @@
 ```mermaid
-classDiagram
-    class Zeppelin {
-        Porta: 8080
+    classDiagram
+    class Pilha {
+        + push(elemento: Object): void
+        + pop(): Object
+        + peek(): Object
+        + isEmpty(): boolean
     }
-    class HiveServer {
-        Porta: 10000
-        Porta: 10002
-    }
-    class Metastore {   
-        Porta: 9083
-    }
-    class LivySpark {
-        Porta: 8998
-        Porta: 18080
-        
-    }
-    class PostgreSQL {
-        Porta: 5432
-    }
-    class MinIO {
-        Porta: 9000
-        Porta: 9001
+    
+    class Fila {
+        + enqueue(elemento: Object): void
+        + dequeue(): Object
+        + peek(): Object
+        + isEmpty(): boolean
     }
 
-    Zeppelin <--> LivySpark
-    LivySpark <--> Metastore: 
-    LivySpark <--> MinIO: 
-    MinIO <--> HiveServer: 
-    Metastore <--> PostgreSQL: 
-    Metastore <--> HiveServer: 
+    Pilha --|> Object
+    Fila --|> Object
